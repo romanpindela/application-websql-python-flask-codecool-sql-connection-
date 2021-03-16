@@ -1,0 +1,43 @@
+body {
+    background-color: #008e9d;
+    color: white;
+}
+
+body {
+    display: block;
+    background-color: darkkhaki;
+}
+
+h1, h2 {
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+}
+
+footer {
+    background-color: tomato;
+}
+
+.content-wrapper {
+    padding: 10%;
+}
+
+#delete-by-mail {
+    text-align: right;
+    padding: 20px;
+    margin: 20px;
+    height: 100px;
+    top: 200px;
+    left: 323px;
+}
+
+.detail {
+    color:ghostwhite;
+    background-color:cornflowerblue;
+}
+
+
+
+.invisible {
+    display:none;
+}

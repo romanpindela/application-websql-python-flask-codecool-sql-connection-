@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block page_title %} Applicant phone number {% endblock %}
+{% block content %}
+<table>
+<thead>
+    {% for column_name in column_names %}
+        <th>{{ column_name }}</th>
+    {% endfor %}
+</thead>
+<tbody>
+{% for applicant in applicants_details %}
+    <tr>
+        {% for key in applicant %}
+            <td>{{ applicant.get(key) }}</td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% include 'footer.html' %}
+{% endblock %}

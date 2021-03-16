@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Mentors list
+{% endblock %}
+
+{% block content %}
+    <div>
+        <form action="/mentors">
+            <label for="first-name-input">Filter by first name:</label>
+            <input id="first-name-input" type="text" name="mentor-first-name">
+            <button type="submit">Search</button>
+        </form>
+
+        <form action="/mentors">
+            <label for="name-input">Filter by last name:</label>
+            <input id="name-input" type="text" name="mentor-last-name">
+            <button type="submit">Search</button>
+        </form>
+
+        <form>
+            <label for="city-name">Filter by city:</label>
+            <select name="city-name" id="city-name">
+                {% for city in cities %}
+                    <option value="{{ city }}" {% if selected_city==city %}selected{% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+
+        </form>
+    </div>
+
+    <div id="mentors">
+        {% for mentor in mentors %}
+            {{ mentor.first_name + " " + mentor.last_name }} - {{ mentor.city }}<br>
+        {% endfor %}
+    </div>
+
+    {% include 'footer.html' %}
+{% endblock %}

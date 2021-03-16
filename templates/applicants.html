@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+   <div class="invisible">Applicants list</div>
+{% endblock %}
+
+{% block content %}
+     <div>
+         <a class="add" href="/add-applicant">Add Applicant</a>
+    </div>
+
+    <div id="applicants">
+        <table>
+            {% for table_header in table_headers %}
+                <th>{{ table_header }}</th>
+            {% endfor %}
+            <th>Actions</th>
+
+            {% for applicant in applicants_details %}
+                <tr>
+                    {% for property in applicant %}
+                        <td class="detail">{{ applicant.get(property) }}</td>
+                    {% endfor %}
+                    <td><button onclick="window.location.href='{{ url_for('display_applicant', code=applicant.get('application_code')) }}';">Edit</button></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    <div>
+        <form action="" method="post">
+            <label for="delete-by-mail">Delete all emails from domain:</label>
+            <input id ="delete-by-mail" type="text" name="email-ending">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% include 'footer.html' %}
+{% endblock %}
